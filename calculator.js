@@ -25,6 +25,7 @@ const handleDigit = number => {
     if (!isDigit(number)) return;
 
     const inputEquation = document.getElementById('inputEquation');
+    // When the result is shown, entering a digit will overwrite it
     inputEquation.value = isResultDisplayed ? `${number}` : `${inputEquation.value}${number}`;
 
     isResultDisplayed = false;
@@ -49,7 +50,9 @@ const handleOperator = operator => {
             break;
         case '.':
             if (!inputEquationValue || isDigit(inputEquationValue.charAt(inputEquationValue.length - 1))) {
-                inputEquation.value = `${inputEquationValue || 0}.`;
+                // If the equation is empty, we add 0 before adding the dot
+                // When the result is shown, entering a dot will overwrite it
+                inputEquation.value = isResultDisplayed ? '0.' : `${inputEquationValue || 0}.`;
                 isResultDisplayed = false;
             }
             break;
