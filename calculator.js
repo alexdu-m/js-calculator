@@ -49,6 +49,7 @@ const handleOperator = operator => {
             }
             break;
         case '.':
+            // TODO: The dot operator is not fully implemented. It currently allows invalid values like 1.2.3
             if (!inputEquationValue || isDigit(inputEquationValue.charAt(inputEquationValue.length - 1))) {
                 // If the equation is empty, we add 0 before adding the dot
                 // When the result is shown, entering a dot will overwrite it
